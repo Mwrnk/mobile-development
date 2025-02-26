@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, View, FlatList, Image, StyleSheet, Button } from "react-native";
+import { Text, SafeAreaView, View, FlatList, Image, StyleSheet, Pressable } from "react-native";
 
 const PRODUTOS = [
   {id: '3321', nome: 'Produto 1'},
@@ -20,7 +20,10 @@ export default function Index() {
         data={PRODUTOS}
         renderItem={({item}) => <Item titulo={item.nome} />}
         keyExtractor={item => item.id}
+        style={{flex: 1, width: '100%'}}
       />
+
+      <Text>ooi</Text>
     </SafeAreaView>
   );
 }
@@ -32,7 +35,15 @@ const Item = ({titulo}) => (
     <View style={{flex: 1, marginLeft: 20}}>
       <Text style={styles.title}>{titulo}</Text>
       <Text style={styles.description}>Descrição</Text>
-      <Button title="Comprar" onPress={() => {}} />
+      <Pressable
+        style={({ pressed }) => [
+          styles.button,
+          { backgroundColor: pressed ? '#2980b9' : '#3498db' },
+        ]}
+        onPress={() => alert('Clicado!')}
+      >
+        <Text style={styles.text}>Adicionar</Text>
+      </Pressable>
     </View>
     
   </View>
@@ -40,14 +51,10 @@ const Item = ({titulo}) => (
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 32,
-    fontFamily: 'roboto',
-    fontWeight: '400',
+    fontSize: 32
   },
   description: {
-    fontSize: 16,
-    fontFamily: 'roboto',
-    fontWeight: '200',
+    fontSize: 16
   },
   image: {
     borderRadius: 10,
