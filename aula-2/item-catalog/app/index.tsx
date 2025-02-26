@@ -26,7 +26,7 @@ export default function Index() {
         style={{flex: 1, width: '100%'}}
       />
 
-        
+
     </SafeAreaView>
   );
 }
@@ -55,12 +55,13 @@ const Item = ({titulo}) => (
 const styles = StyleSheet.create({
   title: {
     fontSize: 32,
-    fontFamily: 'Roboto',
+    fontFamily: 'space-mono',
+    fontWeight: '700',
   },
   description: {
     fontSize: 16,
-    fontFamily: 'Roboto',
-    fontWeight: '300',
+    fontFamily: 'space-mono',
+    fontWeight: '600',
   },
   image: {
     borderRadius: 10,
