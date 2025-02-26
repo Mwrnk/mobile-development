@@ -26,7 +26,7 @@ export default function Index() {
         style={{flex: 1, width: '100%'}}
       />
 
-      <Text>ooi</Text>
+        
     </SafeAreaView>
   );
 }
