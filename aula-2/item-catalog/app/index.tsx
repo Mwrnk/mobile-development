@@ -1,9 +1,12 @@
 import { Text, SafeAreaView, View, FlatList, Image, StyleSheet, Pressable } from "react-native";
 
 const PRODUTOS = [
-  {id: '3321', nome: 'Produto 1'},
+  {id: '2', nome:'Produto 1'},
   {id: '3', nome:'Produto 2'},
   {id: '4', nome:'Produto 3'},
+  {id: '5', nome:'Produto 4'},
+  {id: '6', nome:'Produto 5'},
+  {id: '7', nome:'Produto 6'},
   
 ];
 
@@ -51,15 +54,28 @@ const Item = ({titulo}) => (
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 32
+    fontSize: 32,
+    fontFamily: 'Roboto',
   },
   description: {
-    fontSize: 16
+    fontSize: 16,
+    fontFamily: 'Roboto',
+    fontWeight: '300',
   },
   image: {
     borderRadius: 10,
     width: 124,
     height: 124,
+  },
+  button: {
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  text: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 16,
   }
 
 });
