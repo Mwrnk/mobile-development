@@ -1,6 +1,8 @@
-import { Text, View } from "react-native";
+import React from "react";
+import { Text, TextInput, View } from "react-native";
 
 export default function Index() {
+  const [text, setText] = React.useState("");
   return (
     <View
       style={{
@@ -9,7 +11,11 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <TextInput
+      placeholder="Type here">
+      onchange
+
+      </TextInput>
     </View>
   );
 }
