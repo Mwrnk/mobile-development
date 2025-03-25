@@ -1,4 +1,4 @@
-# 📌 Aula 1 - Introdução ao React Native
+# 📌 Aula 2 - Introdução ao React Native
 
 ## 📂 Estrutura dos Exercícios  
 Cada exercício está localizado dentro da pasta `/app`.  
