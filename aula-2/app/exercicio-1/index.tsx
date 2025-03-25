@@ -1,82 +1,51 @@
-import { Text, SafeAreaView, View, FlatList, Image, StyleSheet, Pressable } from "react-native";
-
-const PRODUTOS = [
-  {id: '2', nome:'Produto 1'},
-  {id: '3', nome:'Produto 2'},
-  {id: '4', nome:'Produto 3'},
-  {id: '5', nome:'Produto 4'},
-  {id: '6', nome:'Produto 5'},
-  {id: '7', nome:'Produto 6'},
-  
-];
+import React from "react";
+import { TextInput, Button, View, Text, Alert, StyleSheet } from "react-native";
 
 export default function Index() {
+  const [name, setName] = React.useState("");
   return (
-    <SafeAreaView
+    <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        flexDirection:"column"
       }}
     >
-      <FlatList
-        data={PRODUTOS}
-        renderItem={({item}) => <Item titulo={item.nome} />}
-        keyExtractor={item => item.id}
-        style={{flex: 1, width: '100%'}}
-      />
+      <Text style= {styles.title}>Bem vindo!</Text>
+      <TextInput
+        placeholder="Digite seu nome"
+        onChangeText={setName}
+        value={name}
+        style={styles.input}>
+      </TextInput>
 
-
-    </SafeAreaView>
+      <Button
+        title="Enviar"
+        onPress={() => Alert.alert(`Olá ${name}!`)}>
+      </Button>
+    </View>
   );
 }
 
-const Item = ({titulo}) => (
-  <View style={{ flexDirection: "row", padding: 20, margin: 0}}>
-    <Image source={require('../../assets/images/png.png')}
-    style={styles.image} ></Image>
-    <View style={{flex: 1, marginLeft: 20}}>
-      <Text style={styles.title}>{titulo}</Text>
-      <Text style={styles.description}>Descrição</Text>
-      <Pressable
-        style={({ pressed }) => [
-          styles.button,
-          { backgroundColor: pressed ? '#2980b9' : '#3498db' },
-        ]}
-        onPress={() => alert('Clicado!')}
-      >
-        <Text style={styles.text}>Adicionar</Text>
-      </Pressable>
-    </View>
-    
-  </View>
-);
-
 const styles = StyleSheet.create({
   title: {
-    fontSize: 32,
-    fontFamily: 'space-mono',
-    fontWeight: '700',
+    fontSize: 20,
+    fontWeight: "bold",
   },
-  description: {
-    fontSize: 16,
-    fontFamily: 'space-mono',
-    fontWeight: '600',
-  },
-  image: {
-    borderRadius: 10,
-    width: 124,
-    height: 124,
+  input: {
+    height: 40,
+    margin: 24,
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: "gray",
+    padding: 10,
   },
   button: {
+    backgroundColor: "blue",
+    color: "white",
     padding: 10,
-    borderRadius: 10,
-    marginTop: 10,
+    borderRadius: 5,
   },
-  text: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize: 16,
-  }
 
-});
+})
